@@ -1,0 +1,162 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "generated_at": "2026-11-17 08:34 UTC",
+    "seed": 7,
+    "solver": "sbfl-greedy-v1",
+    "python": "3.13.18",
+    "pytest": "9.1.1",
+    "command": "python -m pytest -q"
+  },
+  "totals": {
+    "tasks": 66,
+    "repos": 6,
+    "avg_fail_to_pass": 8.0,
+    "avg_pass_to_pass": 42.0,
+    "solver_solved": 0.742,
+    "alternative_fix_rate": 0.015,
+    "mutation_score": 0.921
+  },
+  "funnel": [
+    {
+      "key": "mutants",
+      "label": "Candidate bugs injected",
+      "count": 480
+    },
+    {
+      "key": "survived",
+      "label": "Rejected: tests do not notice (equivalent or untested)",
+      "count": 38
+    },
+    {
+      "key": "timeout",
+      "label": "Rejected: infinite loop / timeout",
+      "count": 14
+    },
+    {
+      "key": "collection_error",
+      "label": "Rejected: crashes test collection",
+      "count": 0
+    },
+    {
+      "key": "too_broad",
+      "label": "Rejected: breaks most of the suite",
+      "count": 16
+    },
+    {
+      "key": "usable",
+      "label": "Usable single + two-bug candidates",
+      "count": 589
+    },
+    {
+      "key": "duplicate_signature",
+      "label": "Dropped: same failing-test signature as another task",
+      "count": 200
+    },
+    {
+      "key": "not_sampled",
+      "label": "Dropped: over the per-repo quota",
+      "count": 323
+    },
+    {
+      "key": "flaky",
+      "label": "Rejected: unstable across re-runs",
+      "count": 0
+    },
+    {
+      "key": "patch_roundtrip",
+      "label": "Rejected: patch did not round-trip",
+      "count": 0
+    },
+    {
+      "key": "golden_fails",
+      "label": "Rejected: golden patch left tests failing",
+      "count": 0
+    },
+    {
+      "key": "leaky_issue",
+      "label": "Rejected: issue text leaked the fix",
+      "count": 0
+    },
+    {
+      "key": "accepted",
+      "label": "Accepted tasks",
+      "count": 66
+    }
+  ],
+  "repos": [
+    {
+      "name": "calc",
+      "loc": 110,
+      "tests": 46,
+      "mutants": 79,
+      "killed": 69,
+      "mutation_score": 0.873,
+      "tasks": 11
+    },
+    {
+      "name": "datekit",
+      "loc": 84,
+      "tests": 82,
+      "mutants": 168,
+      "killed": 153,
+      "mutation_score": 0.911,
+      "tasks": 11
+    },
+    {
+      "name": "graphkit",
+      "loc": 113,
+      "tests": 36,
+      "mutants": 43,
+      "killed": 40,
+      "mutation_score": 0.93,
+      "tasks": 11
+    },
+    {
+      "name": "intervals",
+      "loc": 97,
+      "tests": 57,
+      "mutants": 67,
+      "killed": 61,
+      "mutation_score": 0.91,
+      "tasks": 11
+    },
+    {
+      "name": "lrucache",
+      "loc": 88,
+      "tests": 26,
+      "mutants": 32,
+      "killed": 30,
+      "mutation_score": 0.938,
+      "tasks": 11
+    },
+    {
+      "name": "textkit",
+      "loc": 125,
+      "tests": 53,
+      "mutants": 91,
+      "killed": 89,
+      "mutation_score": 0.978,
+      "tasks": 11
+    }
+  ],
+  "difficulty": {
+    "hard": 20,
+    "easy": 31,
+    "medium": 15
+  },
+  "kinds": {
+    "off_by_one": 17,
+    "boolean_constant": 11,
+    "boolean_logic": 7,
+    "arithmetic_operator": 16,
+    "comparison_negation": 8,
+    "comparison_boundary": 9,
+    "augmented_assignment": 11,
+    "min_max_swap": 2
+  },
+  "bug_counts": {
+    "1": 48,
+    "2": 18
+  }
+}

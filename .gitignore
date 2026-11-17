@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+build.log
+nohup.out
+.DS_Store
+PORTFOLIO_COPY.md
+~$RTFOLIO_COPY.md

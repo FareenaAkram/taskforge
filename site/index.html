@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>taskforge · verified bug-fix tasks for code models</title>
+<meta name="description" content="A pipeline that builds, validates and difficulty-rates executable bug-fix tasks for evaluating and training code models.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">AI training-data engineering</p>
+    <h1>task<span>forge</span></h1>
+    <p class="lede">Executable bug-fix tasks with a golden patch, fail-to-pass and pass-to-pass tests, a leak-checked problem statement and a difficulty tier. Every record is re-verifiable from the JSONL alone.</p>
+    <p class="meta" id="meta"></p>
+    <p class="links"><a class="btn" href="tasks.jsonl" download>Download tasks.jsonl</a> <a class="btn ghost" href="#explorer">Browse tasks</a></p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section aria-labelledby="h-totals">
+    <h2 id="h-totals" class="sr">Totals</h2>
+    <div class="tiles" id="tiles"></div>
+  </section>
+
+  <section aria-labelledby="h-funnel">
+    <h2 id="h-funnel">Pipeline funnel</h2>
+    <p class="sub">What happens to every injected bug. Most are rejected: that is the quality bar.</p>
+    <div id="funnel" class="bars"></div>
+  </section>
+
+  <section class="two" aria-labelledby="h-dist">
+    <div>
+      <h2 id="h-dist">Difficulty</h2>
+      <p class="sub">From the reference solver's edit trials (fault localization + search).</p>
+      <div id="difficulty" class="bars"></div>
+    </div>
+    <div>
+      <h2>Bug categories</h2>
+      <p class="sub">Single-token mutations, applied once or twice per task.</p>
+      <div id="kinds" class="bars"></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-repos">
+    <h2 id="h-repos">Source repositories</h2>
+    <p class="sub">Mutation score is the share of injected bugs a repo's own tests detect.</p>
+    <div class="table-wrap"><table id="repos"></table></div>
+  </section>
+
+  <section id="explorer" aria-labelledby="h-explorer">
+    <h2 id="h-explorer">Task explorer</h2>
+    <div class="filters" role="group" aria-label="Filters">
+      <label>Repo <select id="f-repo"></select></label>
+      <label>Bug type <select id="f-kind"></select></label>
+      <div class="chips" id="f-tier" role="group" aria-label="Difficulty"></div>
+      <label class="grow">Search <input id="f-q" type="search" placeholder="test name, text in the statement..."></label>
+    </div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <div class="explorer">
+      <ul id="list" class="list"></ul>
+      <article id="detail" class="detail" aria-live="polite"></article>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <p>Bugs are synthetic single-token mutations, not mined from commit history. The reference solver shares the generator's edit catalogue, so difficulty tiers are a calibrated proxy, not a model benchmark. Sandboxing is process-level, not a security boundary.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
